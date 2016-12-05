@@ -1,6 +1,5 @@
 package com.dutchwheel;
 
-import com.dutchwheel.dao.UsersDaoImpl;
 import com.dutchwheel.services.UserServiceImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

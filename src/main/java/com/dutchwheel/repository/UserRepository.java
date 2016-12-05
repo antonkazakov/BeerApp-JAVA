@@ -21,8 +21,8 @@ public interface UserRepository extends JpaRepository<User,Integer> {
      * @param apiKey
      * @return
      */
-    @Query("SELECT FROM User user WHERE user.api_key =:apiKey")
+    @Query("FROM User u where u.apiKey =: api_key")
     @Transactional(readOnly = true)
-    List<User> findUserByToken(@Param("api_key") String apiKey);
+    List<User> find(@Param("api_key") String apiKey);
 
 }

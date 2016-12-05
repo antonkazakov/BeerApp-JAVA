@@ -35,19 +35,19 @@ public class JpaConfig implements TransactionManagementConfigurer {
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean configureEntityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPackagesToScan("com.dutchwheel");
-        entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
+        entityManagerFactory.setDataSource(dataSource());
+        entityManagerFactory.setPackagesToScan("com.dutchwheel");
+        entityManagerFactory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
         Properties jpaProperties = new Properties();
         jpaProperties.put(Environment.SHOW_SQL, "true");
         jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
         jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "update");
-        entityManagerFactoryBean.setJpaProperties(jpaProperties);
+        entityManagerFactory.setJpaProperties(jpaProperties);
 
-        return entityManagerFactoryBean;
+        return entityManagerFactory;
     }
 
     @Bean
