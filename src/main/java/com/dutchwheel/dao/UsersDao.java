@@ -1,6 +1,6 @@
 package com.dutchwheel.dao;
 
-import com.dutchwheel.User;
+import com.dutchwheel.entities.User;
 
 /**
  * Created by antonkazakov on 04.12.16.

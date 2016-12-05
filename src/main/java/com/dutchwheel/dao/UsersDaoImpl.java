@@ -1,9 +1,7 @@
 package com.dutchwheel.dao;
 
-import com.dutchwheel.HibernateConnector;
-import com.dutchwheel.User;
+import com.dutchwheel.entities.User;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 
 import java.util.List;
 

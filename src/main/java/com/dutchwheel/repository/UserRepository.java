@@ -1,20 +1,28 @@
 package com.dutchwheel.repository;
 
-import com.dutchwheel.User;
+import com.dutchwheel.entities.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.Repository;
+
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by antonkazakov on 05.12.16.
  */
-public interface UserRepository extends Repository<User,Integer> {
+@Repository
+public interface UserRepository extends JpaRepository<User,Integer> {
 
-    @Query("SELECT FROM User user  WHERE owner.lastName LIKE :lastName")
+    /**
+     * Select user form users table by user token
+     * @param apiKey
+     * @return
+     */
+    @Query("SELECT FROM User user WHERE user.api_key =:apiKey")
     @Transactional(readOnly = true)
-    Collection<User> findByLastName(@Param("lastName") String lastName);
+    List<User> findUserByToken(@Param("api_key") String apiKey);
 
 }

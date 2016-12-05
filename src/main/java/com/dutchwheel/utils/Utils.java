@@ -1,4 +1,4 @@
-package com.dutchwheel;
+package com.dutchwheel.utils;
 
 import java.security.SecureRandom;
 

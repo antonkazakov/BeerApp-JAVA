@@ -1,4 +1,4 @@
-package com.dutchwheel;
+package com.dutchwheel.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ public class User {
     @Id
     private Integer id;
 
-    @Column(name = "simple_name")
+    @Column(name = "phone")
     private String phone;
 
     @Column(name = "photo_path")
